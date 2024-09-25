@@ -13,5 +13,8 @@ import {MatCardModule} from '@angular/material/card';
   styleUrl: './article.component.scss'
 })
 export class ArticleComponent {
-
+  titles: string[] = [
+    'Mon premier article', 
+    'Mon second article'
+  ]
 }
