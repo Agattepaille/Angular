@@ -5,6 +5,14 @@ import { FormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 
+export interface Article {
+  title: string;
+  content: string;
+  image: string;
+  author: string;
+  isPublished: boolean;
+  comment?: string;
+}
 
 @Component({
   selector: 'app-article',
@@ -20,7 +28,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
   styleUrl: './article.component.scss'
 })
 export class ArticleComponent {
-  article = {
+  article: Article = {
     title: 'Titre de l\'article',
     author: 'John Doe',
     content: 'Voici le contenu de l\'article.',
