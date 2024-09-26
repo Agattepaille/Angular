@@ -32,5 +32,9 @@ export class ArticleComponent {
   togglePublication(): void {
     this.article.isPublished = !this.article.isPublished;
   }
+
+  publishComment(): void {
+    this.article.comment = this.article.comment;
+  }
 }
 

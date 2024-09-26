@@ -1,27 +1,30 @@
 @if (article.isPublished) {
 
 <mat-card class="example-card" appearance="outlined">
-    <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{ article.title }}</mat-card-title>
-        <mat-card-subtitle>Par : {{ article.author }}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image [src]="article.image" [alt]="article.title" />
-    <mat-card-content>
-        <p>
-            {{ article.content }}
-        </p>
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-flat-button (click)="togglePublication()">Dépublier</button>
-        <mat-form-field>
-            <mat-label>Input</mat-label>
-            <input matInput>
-        </mat-form-field>
-    </mat-card-actions>
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{ article.title }}</mat-card-title>
+    <mat-card-subtitle>Par : {{ article.author }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="article.image" [alt]="article.title" />
+  <mat-card-content>
+    <p>
+      {{ article.content }}
+    </p>
+    <p>
+      Mon commentaire s'affiche dynamiquement : {{ article.comment }}
+    </p>
+  </mat-card-content>
+  <mat-form-field>
+    <mat-label>Ajouter un commentaire</mat-label>
+    <input matInput [(ngModel)]="article.comment"/>
+  </mat-form-field>
+  <mat-card-actions>
+    <button mat-flat-button (click)="togglePublication()">Dépublier</button>
+  </mat-card-actions>
 </mat-card>
 } @else {
 <mat-card-actions>
-    <button mat-flat-button (click)="togglePublication()">Publier</button>
+  <button mat-flat-button (click)="togglePublication()">Publier</button>
 </mat-card-actions>
 }
