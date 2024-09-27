@@ -1,0 +1,12 @@
+<div class="listContainer">
+  <div id="listHeader" class="header">
+    <h2>Thème</h2>
+    <input type="text" id="myInput" placeholder="Ajouter un item à ma liste" [(ngModel)]="itemToAdd" />
+    <app-button></app-button>
+  </div>
+  
+<ul id="myUL">
+    <app-item></app-item>
+    <li>{{itemToAdd}}</li>
+  </ul>
+</div>
