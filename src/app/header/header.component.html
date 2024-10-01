@@ -1,6 +1,10 @@
-<div class="two alt-two">
+<header class="two alt-two">
 	<h1>
 		{{ title }}
-		<span>Confectionné en Angular</span>
+		<span>{{ subtitle }}</span>
 	</h1>
-</div>
+	<nav>
+		<a [routerLink]="['/']">Accueil</a>
+		<a [routerLink]="['/contact']">Contact</a>
+	</nav>
+</header>

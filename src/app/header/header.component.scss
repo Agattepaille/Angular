@@ -1,10 +1,12 @@
 /* Heading */
+header {
+  margin-bottom: 30px;
+}
 
 h1 {
     position: relative;
     padding: 0;
-    margin: 50px;
-    font-family: "Raleway", sans-serif;
+    margin: 30px 0 0 0;
     font-weight: 300;
     font-size: 40px;
     color: #080808;
@@ -51,4 +53,27 @@ h1 {
   }
   .alt-two h1:before {
     left:50%; margin-left:-30px;
+  }
+
+  nav  {
+    display: inline-flex;
+    justify-content: start;
+    width: 100%;
+    padding-left: 5em;
+  }
+
+  nav a {
+    display: flex;
+    text-decoration: none;
+    color: black;
+    padding: 8px;
+  }
+
+  nav a:before {
+    width: 60px;
+    height: 2px;
+    content: "";
+    background-color: #c50000;
+    
+
   }
