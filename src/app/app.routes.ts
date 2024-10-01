@@ -4,7 +4,7 @@ import { ArticlePageComponent } from './article-page/article-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 export const routes: Routes = [
-    { path: 'article/:id', component: ArticlePageComponent },  // Route dynamique pour afficher les détails d'un article
-    { path: '', component: HomePageComponent}, // Route pour la page d'accueil
+    { path: '', component: HomePageComponent, pathMatch: 'full'},
+    { path: 'article/:id', component: ArticlePageComponent }, 
     { path: '**', component: NotFoundComponent }
 ];
