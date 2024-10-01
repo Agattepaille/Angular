@@ -71,6 +71,14 @@ form {
     transform: scale(0.98);
   }
   
+  .invalid {
+    border-color: #c50000;
+  }
+
+  .invalid span {
+    color: #c50000;
+  }
+
   /* Styles supplémentaires pour le form visuellement agréable */
   /* input[type="text"]:invalid, input[type="email"]:invalid, textarea:invalid {
     border-color: #c50000;
