@@ -12,14 +12,18 @@
     <!-- Champ Nom -->
     <fieldset>
       <label for="lastname">Nom</label>
-      <input id="lastname" name="lastname" [ngClass]="{'invalid': contactForm.submitted && lastname.errors}"  type="text" [(ngModel)]="newMessage.lastname" #lastname="ngModel" required minlength="2">
+      <input id="lastname" name="lastname" [ngClass]="{'invalid': contactForm.submitted && lastname.errors}"  type="text" [(ngModel)]="newMessage.lastname" #lastname="ngModel" required minlength="2"
+      maxlength="15">
       @if (contactForm.submitted && lastname.errors) {
         <div [ngClass]="{'invalid': contactForm.submitted && lastname.errors}">
           @if (lastname.errors['required']) {
             <span>Le nom est requis</span>
           }
           @if (lastname.errors['minlength']) {
-            <span>La longueur minimale doit être supérieure à 2</span>
+            <span>Le nom doit comporter au moins 2 caractères</span>
+          }
+          @if (lastname.errors['maxlength']) {
+            <span>Le nom ne doit pas dépasser 15 caractères</span>
           }
         </div>
       }
@@ -28,14 +32,17 @@
     <!-- Champ Prénom -->
     <fieldset>
       <label for="firstname">Prénom</label>
-      <input id="firstname" name="firstname" [ngClass]="{'invalid': contactForm.submitted && firstname.errors}" type="text" [(ngModel)]="newMessage.firstname" #firstname="ngModel" required minlength="2">
+      <input id="firstname" name="firstname" [ngClass]="{'invalid': contactForm.submitted && firstname.errors}" type="text" [(ngModel)]="newMessage.firstname" #firstname="ngModel" required minlength="2" maxlength="15">
       @if (contactForm.submitted && firstname.errors) {
         <div [ngClass]="{'invalid': contactForm.submitted && firstname.errors}">
           @if (firstname.errors['required']) {
             <span>Le prénom est requis</span>
           }
           @if (firstname.errors['minlength']) {
-            <span>La longueur minimale doit être supérieure à 2</span>
+            <span>Le prénom doit comporter au moins 2 caractères</span>
+          }
+          @if (firstname.errors['maxlength']) {
+            <span>Le prénom ne doit pas dépasser 15 caractères</span>
           }
         </div>
       }
@@ -51,7 +58,7 @@
             <span>L'email est requis</span>
           }
           @if (email.errors['email']) {
-            <span>Veuillez fournir une adresse email valide</span>
+            <span> L'email est invalide</span>
           }
         </div>
       }
@@ -65,9 +72,6 @@
         <div [ngClass]="{'invalid': contactForm.submitted && content.errors}">
           @if (content.errors['required']) {
             <span>Le contenu du message est requis</span>
-          }
-          @if (content.errors['minlength']) {
-            <span>Le contenu doit comporter au moins 20 caractères</span>
           }
         </div>
       }
