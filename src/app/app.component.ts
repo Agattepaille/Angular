@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from "@angular/common";
-import { HomePageComponent } from './home-page/home-page.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
 import { HeaderComponent } from './header/header.component';
 
 
