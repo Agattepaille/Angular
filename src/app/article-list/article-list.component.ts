@@ -6,7 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-import { RouterLink, RouterModule } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 export interface Article {
   title: string;
@@ -31,10 +31,10 @@ export interface Article {
     MatIconModule,
     RouterLink
   ],
-  templateUrl: './article.component.html',
-  styleUrl: './article.component.scss'
+  templateUrl: './article-list.component.html',
+  styleUrl: './article-list.component.scss'
 })
-export class ArticleComponent {
+export class ArticleListComponent {
   articles = [
     {
       title: 'Angular 16: Les nouveautés',
