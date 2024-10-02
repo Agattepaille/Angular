@@ -65,15 +65,11 @@ h1 {
   nav a {
     display: flex;
     text-decoration: none;
-    color: black;
-    padding: 8px;
+    padding: 8px 0;
+    margin: 8px;
+    border-bottom: 2px solid #c50000;
   }
 
-  nav a:before {
-    width: 60px;
-    height: 2px;
-    content: "";
-    background-color: #c50000;
-    
-
+  nav a:hover {
+    border-bottom:2px solid #080808;
   }
