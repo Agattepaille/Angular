@@ -49,7 +49,7 @@
             <input type="password" id="confirmPassword" formControlName="confirmPassword" />
             <div class="invalid">
                 @if (signUpForm.get('passwords')?.errors?.['passwordsMismatch'] &&
-                signUpForm.get('passwords.confirmPassword')?.touched) {
+                signUpForm.get('passwords.password')?.touched) {
                 <span>Les mots de passe ne correspondent pas.</span>
                 }
             </div>
