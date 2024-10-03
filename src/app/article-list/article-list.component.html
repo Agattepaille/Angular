@@ -1,28 +1,9 @@
-
-@for (article of articles; track $index) {
+@for (article of articles; track article.id) {
 	@if (article.isPublished == true) {
-	<mat-card class="example-card" appearance="outlined">
-		<mat-card-header>
-			<mat-card-title [ngClass]="{'popular-article': article.likes > 100}" >{{ article.title }}</mat-card-title>
-			<mat-card-subtitle>Par : {{ article.author }}</mat-card-subtitle>
-		</mat-card-header>
-		<img mat-card-image [src]="article.image" [alt]="article.title" />
-		<mat-card-content>
-			<p [ngStyle]="{'color': article.likes > 150 ? 'green' : 'black'}">
-				{{ article.content }}
-			</p>
-		</mat-card-content>
-		<mat-card-content>
-			<div class="lign">
-				<mat-icon [ngStyle]="{'color': article.likes > 150 ? 'red' : 'black'}" class="icon" aria-hidden="false" aria-label="heart icon" fontIcon="favorite"></mat-icon>
-				<p>{{ article.likes }} likes</p>
-			</div>
-			<div class="lign">
-				<a [routerLink]="['/article', article.id]">Voir l'article</a>
-			</div>
-		</mat-card-content>
-	</mat-card> 
+	<app-article [article]="article"></app-article>
 	}
 } @empty {
-		<p>Aucun article publié pour le moment.</p>
-	}
+<p>Aucun article publié pour le moment.</p>
+}
+
+<!-- <app-article-page [articles]="article"></app-article-page> -->

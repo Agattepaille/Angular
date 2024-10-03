@@ -7,19 +7,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
-
-export interface Article {
-  title: string;
-  content: string;
-  image: string;
-  author: string;
-  isPublished: boolean;
-  comment?: string;
-  id: number;
-}
+import { Article } from "../models/article.models";
+import { ArticleComponent } from '../article/article.component';
 
 @Component({
-  selector: 'app-article',
+  selector: 'app-article-list',
   standalone: true,
   imports: [
     MatButtonModule,
@@ -29,13 +21,14 @@ export interface Article {
     MatInputModule,
     CommonModule,
     MatIconModule,
-    RouterLink
+    RouterLink,
+    ArticleComponent
   ],
   templateUrl: './article-list.component.html',
   styleUrl: './article-list.component.scss'
 })
 export class ArticleListComponent {
-  articles = [
+  articles: Article[] = [
     {
       title: 'Angular 16: Les nouveautés',
       author: 'Alice',
@@ -67,5 +60,7 @@ export class ArticleListComponent {
       id: 3
     }
   ];
+
+
 }
 

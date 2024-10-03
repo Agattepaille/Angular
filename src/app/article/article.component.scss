@@ -2,13 +2,9 @@
     max-width: 400px;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
+    margin: 30px;
   }
   
-  .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-  }
-
 
 /* Style spécial pour articles populaires */
 .popular-article {
@@ -18,7 +14,6 @@
 }
 
 /* *** */
-
 .lign {
   display: flex;
   flex-direction: row;

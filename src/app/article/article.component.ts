@@ -1,21 +1,25 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
+import { Article } from '../models/article.models';
+import { ActivatedRoute, ParamMap, RouterLink } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
-  selector: 'app-article-page',
+  selector: 'app-article',
   standalone: true,
   imports: [
     MatCardModule,
     MatIconModule,
     CommonModule,
+    RouterLink
   ],
-  templateUrl: './article-page.component.html',
-  styleUrl: './article-page.component.scss'
+  templateUrl: './article.component.html',
+  styleUrl: './article.component.scss'
 })
-export class ArticlePageComponent {
+export class ArticleComponent {
+  @Input() article!: Article;
+
   route: ActivatedRoute = inject(ActivatedRoute);
   articleId!: number;
 
@@ -24,4 +28,4 @@ export class ArticlePageComponent {
       this.articleId = Number(params.get('id'));
     });
   }
-} 
+}
