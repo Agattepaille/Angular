@@ -10,7 +10,6 @@ export const routes: Routes = [
     { path: 'article/:id', component: ArticleComponent },  
     { path: 'contact', component: ContactFormComponent },
     { path: 'registration', component: SignupFormComponent }, 
-
     { path: '**', component: NotFoundComponent }
 
 ];
