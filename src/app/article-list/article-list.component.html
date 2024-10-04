@@ -1,9 +1,0 @@
-@for (article of articles; track article.id) {
-	@if (article.isPublished == true) {
-	<app-article [article]="article"></app-article>
-	}
-} @empty {
-<p>Aucun article publié pour le moment.</p>
-}
-
-<!-- <app-article-page [articles]="article"></app-article-page> -->

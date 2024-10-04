@@ -1,3 +1,10 @@
 <div class="contentWrapper">
-  <app-article-list></app-article-list>
+  @for (article of articles; track article.id) {
+    @if (article.isPublished == true) {
+    <app-article [article]="article" (notifyParent)="handleNotification($event)"></app-article>
+    }
+  } @empty {
+  <p>Aucun article publié pour le moment.</p>
+  }
+
 </div>

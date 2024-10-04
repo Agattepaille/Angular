@@ -11,12 +11,19 @@
     </mat-card-content>
     <mat-card-content>
         <div class="lign">
-            <mat-icon [ngStyle]="{'color': article.likes > 150 ? 'red' : 'black'}" class="icon" aria-hidden="false"
-                aria-label="heart icon" fontIcon="favorite"></mat-icon>
-            <p>{{ article.likes }} likes</p>
+            <span aria-hidden="false" aria-label="thumb-up" class="material-symbols-outlined icon"
+                [ngStyle]="{'color': article.likes > 150 ? 'red' : 'black'}">
+                thumb_up
+            </span>
+            <p>{{ article.likes }}</p>
         </div>
-        <div class="lign">
+        <div class="lign btnLikeContainer">
             <a [routerLink]="['/article', article.id]">Voir l'article</a>
+            <button class="button-45" (click)="sendNotification(article)">
+                <span aria-hidden="false" aria-label="thumb-up" class="material-symbols-outlined icon">thumb_up</span>
+            J'aime
+                </button>
         </div>
     </mat-card-content>
-</mat-card> 
+</mat-card>
+
