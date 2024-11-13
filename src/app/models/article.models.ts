@@ -3,8 +3,10 @@ export interface Article {
     content: string;
     image: string;
     author: string;
-    isPublished: boolean;
-    likes: number;
+    likeCount: number;
     comment?: string;
     id: number;
+    createdAt:string;
+    categoryName: string;
+    isLiked: boolean;
   }

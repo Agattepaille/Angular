@@ -1,24 +1,25 @@
 <mat-card class="example-card" appearance="outlined">
     <mat-card-header>
-        <mat-card-title [ngClass]="{'popular-article': article.likes > 100}">{{ article.title }}</mat-card-title>
-        <mat-card-subtitle>Par : {{ article.author }}</mat-card-subtitle>
+        <mat-card-title [ngClass]="{'popular-article': article.likeCount > 100}">{{ article.title }}</mat-card-title>
+        <mat-card-subtitle>{{ article.categoryName }}</mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image [src]="article.image" [alt]="article.title" />
     <mat-card-content>
-        <p [ngStyle]="{'color': article.likes > 150 ? 'green' : 'black'}">
+        <p [ngStyle]="{'color': article.likeCount > 150 ? 'green' : 'black'}">
             {{ article.content }}
         </p>
     </mat-card-content>
     <mat-card-content>
         <div class="lign">
             <span aria-hidden="false" aria-label="thumb-up" class="material-symbols-outlined icon"
-                [ngStyle]="{'color': article.likes > 150 ? 'red' : 'black'}">
+                [ngStyle]="{'color': article.likeCount > 150 ? 'red' : 'black'}">
                 thumb_up
             </span>
-            <p>{{ article.likes }}</p>
+            <p>{{ article.likeCount }}</p>
         </div>
         <div class="lign btnLikeContainer">
             <a [routerLink]="['/article', article.id]">Voir l'article</a>
+            <!-- <a (click)="getArticleById(article.id)">Voir l'article</a> -->
             <button class="button-45" (click)="sendNotification(article)">
                 <span aria-hidden="false" aria-label="thumb-up" class="material-symbols-outlined icon">thumb_up</span>
             J'aime
