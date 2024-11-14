@@ -18,22 +18,21 @@ export class ArticlePageComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
   articleId!: number;
   article!: Article;
-  article$!: Observable<Article>;
+  // article$!: Observable<Article>;
   private apiService = inject(ApiService);
   articleSubscription!: Subscription;
 
   ngOnInit() {
-    this.articleSubscription = this.route.paramMap.subscribe((params: ParamMap) => {
+  this.route.paramMap.subscribe((params: ParamMap) => {
       this.articleId = Number(params.get('id'));
     });
 
   this.apiService.getArticleById(this.articleId).subscribe((data => {
-      this.article = data
-      console.log(this.article);
+      this.article = data;
       })
     );
   }
-
+  
   ngOnDestroy() {
     this.articleSubscription.unsubscribe();
   }
