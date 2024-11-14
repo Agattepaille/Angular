@@ -25,7 +25,6 @@ export class ArticlePageComponent {
 
   articleSubscription!: Subscription;
 
-
   http = inject(HttpClient);
 
   getArticleById(id: number) {
@@ -43,5 +42,7 @@ export class ArticlePageComponent {
     this.getArticleById(this.articleId);
   }
 
-  
+  ngOnDestroy() {
+    this.articleSubscription.unsubscribe();
+  }
 }
