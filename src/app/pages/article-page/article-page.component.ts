@@ -5,6 +5,7 @@ import { Article } from '../../models/article.models';
 import { HttpClient } from '@angular/common/http';
 import { ArticleComponent } from "../../components/article/article.component";
 import { AsyncPipe } from '@angular/common';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-article-page',
@@ -20,27 +21,22 @@ export class ArticlePageComponent {
   articleId!: number;
 
   article!: Article;
-
   // article$!: Observable<Article>;
+
+
+  private apiService = inject(ApiService);
 
   articleSubscription!: Subscription;
 
-
-  http = inject(HttpClient);
-
-  getArticleById(id: number) {
-    this.http.get<Article>(`http://localhost:3000/articles/${id}`).subscribe(data => {
-      this.article = data;
-      return this.article;
-    });
-  }
-
   ngOnInit() {
-    this.route.paramMap.subscribe((params: ParamMap) => {
+    this.articleSubscription = this.route.paramMap.subscribe((params: ParamMap) => {
       this.articleId = Number(params.get('id'));
-      return this.articleId;
+      this.apiService.getArticleById(this.articleId).subscribe((data => {
+        this.article = data
+      })
+    );
+
     });
-    this.getArticleById(this.articleId);
   }
 
   
