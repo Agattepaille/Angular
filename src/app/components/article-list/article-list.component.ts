@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { Article } from '../../models/article.models';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ArticleComponent } from "../article/article.component";
 import { AsyncPipe } from '@angular/common';
@@ -20,12 +19,11 @@ export class ArticleListComponent {
 
   articles$!: Observable<Article[]>;
   private apiService = inject(ApiService);
+  messageFromChild: string = '';
 
   ngOnInit() {
     this.articles$ = this.apiService.getArticles();
   }
-
-  messageFromChild: string = '';
 
   handleNotification(article: Article) {
     this.messageFromChild = article.title;
@@ -35,10 +33,6 @@ export class ArticleListComponent {
 
   addLikeToArticle(article: Article): void {
     article.likeCount++;
-  }
-
-  ngOnDestroy() {
-    this.articleSubscription.unsubscribe();
   }
 
 }
