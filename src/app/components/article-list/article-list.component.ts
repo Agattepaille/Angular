@@ -16,11 +16,10 @@ import { AsyncPipe } from '@angular/common';
   styleUrl: './article-list.component.scss'
 })
 export class ArticleListComponent {
-  articles: Article[] = [];
-
+  // on déclare articles en tant qu'observable 
+  // puis dans le template on assigne l'observable à la propriété article. Utilsation dans le cas du asyncPipe
   articles$!: Observable<Article[]>;
-
-  http = inject(HttpClient); 
+  private http = inject(HttpClient); 
 
   ngOnInit() {
     this.getArticles();
@@ -28,7 +27,6 @@ export class ArticleListComponent {
 
   getArticles() {
     this.articles$ = this.http.get<Article[]>('http://localhost:3000/articles');
-    return this.articles$;
   }
 
   messageFromChild: string = '';

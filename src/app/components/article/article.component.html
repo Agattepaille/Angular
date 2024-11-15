@@ -1,3 +1,4 @@
+@if (article) {
 <mat-card class="example-card" appearance="outlined">
     <mat-card-header>
         <mat-card-title [ngClass]="{'popular-article': article.likeCount > 100}">{{ article.title }}</mat-card-title>
@@ -27,4 +28,5 @@
         </div>
     </mat-card-content>
 </mat-card>
+}
 

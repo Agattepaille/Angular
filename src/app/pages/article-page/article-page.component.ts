@@ -20,9 +20,6 @@ export class ArticlePageComponent {
   articleId!: number;
 
   article!: Article;
-
-  // article$!: Observable<Article>;
-
   articleSubscription!: Subscription;
 
   http = inject(HttpClient);
@@ -30,16 +27,14 @@ export class ArticlePageComponent {
   getArticleById(id: number) {
     this.http.get<Article>(`http://localhost:3000/articles/${id}`).subscribe(data => {
       this.article = data;
-      return this.article;
     });
   }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.articleId = Number(params.get('id'));
-      return this.articleId;
+      this.getArticleById(this.articleId);
     });
-    this.getArticleById(this.articleId);
   }
 
   ngOnDestroy() {
