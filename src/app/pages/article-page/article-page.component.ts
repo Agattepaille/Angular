@@ -15,12 +15,13 @@ import { ApiService } from '../../services/api.service';
   styleUrl: './article-page.component.scss'
 })
 export class ArticlePageComponent {
-  route: ActivatedRoute = inject(ActivatedRoute);
-  articleId!: number;
+  private articleId!: number;
   article!: Article;
+  private articleSubscription!: Subscription;
+
   // article$!: Observable<Article>;
+  route: ActivatedRoute = inject(ActivatedRoute);
   private apiService = inject(ApiService);
-  articleSubscription!: Subscription;
 
   ngOnInit() {
   this.route.paramMap.subscribe((params: ParamMap) => {
