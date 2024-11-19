@@ -15,23 +15,21 @@ import { ApiService } from '../../services/api.service';
   styleUrl: './article-page.component.scss'
 })
 export class ArticlePageComponent {
-  private articleId!: number;
+  articleId!: number;
   article!: Article;
-  private articleSubscription!: Subscription;
+  articleSubscription!: Subscription;
 
-  // article$!: Observable<Article>;
   route: ActivatedRoute = inject(ActivatedRoute);
   private apiService = inject(ApiService);
 
   ngOnInit() {
   this.route.paramMap.subscribe((params: ParamMap) => {
       this.articleId = Number(params.get('id'));
+      this.articleSubscription = this.apiService.getArticleById(this.articleId).subscribe((data => {
+        this.article = data;
+        })
+      );
     });
-
-  this.apiService.getArticleById(this.articleId).subscribe((data => {
-      this.article = data;
-      })
-    );
   }
   
   ngOnDestroy() {
