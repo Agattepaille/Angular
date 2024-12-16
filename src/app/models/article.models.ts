@@ -1,12 +1,10 @@
 export interface Article {
+    id: number;
     title: string;
     content: string;
     image: string;
-    author: string;
+    createdAt: Date;
+    isPublished: boolean;
     likeCount: number;
-    comment?: string;
-    id: number;
-    createdAt:string;
     categoryName: string;
-    isLiked: boolean;
-  }
+}
