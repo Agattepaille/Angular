@@ -1,0 +1,23 @@
+<header class="two alt-two">
+	<h1>
+		{{ title }}
+		<span>{{ subtitle }}</span>
+	</h1>
+	<nav>
+    @if (!isLoggedIn()) {
+      <a [routerLink]="['/registration']">Inscription</a>
+      <a [routerLink]="['/login']">Connexion</a>
+    }
+    @if (isLoggedIn()) {
+      <a [routerLink]="['/']">Accueil</a>
+      <a [routerLink]="['/contact']">Contact</a>
+      <a [routerLink]="['/profile']">Profil</a>
+
+      @if (isAdmin()) {
+        <a [routerLink]="['/admin']">Admin</a>
+      }
+      <button (click)="logout()">Déconnexion</button>
+    }
+
+  </nav>
+</header>

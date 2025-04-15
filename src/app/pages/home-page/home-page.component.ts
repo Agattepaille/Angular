@@ -20,8 +20,6 @@ import { ArticleListComponent } from "../../components/article-list/article-list
     MatFormFieldModule,
     MatInputModule,
     CommonModule,
-    RouterLink,
-    ArticleComponent,
     ArticleListComponent
 ],
   templateUrl: './home-page.component.html',

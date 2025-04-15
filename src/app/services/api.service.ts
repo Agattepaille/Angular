@@ -10,7 +10,7 @@ export class ApiService {
 
   constructor() { }
 
-  private apiUrl = 'http://localhost:3000/articles';
+  private apiUrl = 'http://localhost:8080/articles';
 
   private http = inject(HttpClient);
 

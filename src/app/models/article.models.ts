@@ -1,8 +1,8 @@
 export interface Article {
     title: string;
     content: string;
-    image: string;
-    author: string;
+    imageUrls: string;
+    authors: string;
     likeCount: number;
     comment?: string;
     id: number;
