@@ -13,7 +13,7 @@ import {authGuard} from "./guards/auth.guard";
 import {LoginPageComponent} from "./pages/login-page/login-page.component";
 
 export const routes: Routes = [
-  { path: '', component: HomePageComponent},
+  { path: '', component: HomePageComponent, canActivate: [authGuard]},
   { path: 'article/:id', component: ArticlePageComponent, canActivate: [authGuard] },
   { path: 'contact', component: ContactFormComponent, canActivate: [authGuard] },
   { path: 'registration', component: SignupFormComponent, canActivate: [visitorOnlyGuard]  },
