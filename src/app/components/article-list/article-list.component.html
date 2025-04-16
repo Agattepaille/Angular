@@ -1,0 +1,7 @@
+<div class="contentWrapper">
+    @for (article of articles$ | async; track article.id) {
+      <app-article [article]="article" (notifyParent)="handleNotification($event)"></app-article>
+    } @empty {
+    <p>Aucun article publié pour le moment.</p>
+    }
+</div>
